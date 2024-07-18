@@ -41,6 +41,11 @@ public class LoginServlet extends HttpServlet {
                             HttpSession session = request.getSession();
                             String name = request.getParameter("username");
                             session.setAttribute("user", name);
+                            session.setAttribute("email", rs.getString("email"));
+                            session.setAttribute("contact", rs.getString("contact"));
+                            session.setAttribute("address", rs.getString("address"));
+                            session.setAttribute("nationalID", rs.getString("nationalID"));
+                            session.setAttribute("balance", rs.getString("balance"));
                             response.sendRedirect("index.jsp");
                         } else {
                             out.println("User doesn't exist or invalid credentials.");
