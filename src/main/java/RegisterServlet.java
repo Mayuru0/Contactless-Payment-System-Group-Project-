@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
                     ps.setString(4, email);
                     ps.setString(5, contact);
                     ps.setString(6, password);
-                    ps.setString(7, "0.0");
+                    ps.setString(7, "1000");
 
                     int result = ps.executeUpdate();
                     if (result > 0) {

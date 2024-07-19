@@ -27,13 +27,26 @@ and open the template in the editor.
             if (username == null) {
                 username = "Guest";
             }
+            String balance = (String) session.getAttribute("balance");
+            if (balance == null) {
+                balance = "00";
+            }
         %>
+        <div class="balance-container">
+            <p style="bottom: 50px;">Available Balance</p><br>
+            <i class="fa-solid fa-wallet"></i> <%= balance%>
+        </div>
         <ul class="navbar">
             <li><a href="index.jsp">Home</a></li>
             <li><a href="send.jsp">Send</a></li>
             <li><a class="active" href="receive.jsp">Receive</a></li>
             <li><a href="transactions.jsp">Transaction History</a></li>
             <li class="profile"><a href="profile.jsp"><i style="padding-right: 10px;" class="fa-solid fa-user"></i><%= username%></a></li>
+                    <% if (!"Guest".equals(username)) { %>
+            <li><a href="LogoutServlet"><i style="padding-right: 10px; color: red;" class="fa-solid fa-sign-out-alt"></i>Logout</a></li>
+                <% } else { %>
+            <li><a href="login.html"><i style="padding-right: 10px;" class="fa-solid fa-sign-in-alt"></i>Login</a></li>
+                <% }%>
         </ul>
         <div class="container">
             <div class="wrapper">

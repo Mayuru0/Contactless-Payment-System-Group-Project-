@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 @WebServlet("/processQRCode")
 public class QRCodeProcessServlet extends HttpServlet {
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StringBuilder sb = new StringBuilder();
@@ -25,6 +25,6 @@ public class QRCodeProcessServlet extends HttpServlet {
 
         response.setContentType("application/json");
         response.getWriter().write("{\"status\":\"success\",\"qrCodeData\":\"" + qrCodeData + "\"}");
-        
+
     }
 }

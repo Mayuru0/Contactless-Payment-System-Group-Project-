@@ -15,14 +15,15 @@
         <script src="https://kit.fontawesome.com/f7a46409df.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <% 
+
+        <%
             String username = (String) session.getAttribute("user");
             String email = (String) session.getAttribute("email");
             String contact = (String) session.getAttribute("contact");
             String address = (String) session.getAttribute("address");
             String nationalID = (String) session.getAttribute("nationalID");
             String balance = (String) session.getAttribute("balance");
-            
+
             if (username == null) {
                 username = "Guest";
             }
@@ -42,12 +43,21 @@
                 balance = "N/A";
             }
         %>
+        <div class="balance-container">
+            <p style="bottom: 50px;">Available Balance</p><br>
+            <i class="fa-solid fa-wallet"></i> <%= balance%>
+        </div>
         <ul class="navbar">
             <li><a href="index.jsp">Home</a></li>
             <li><a href="send.jsp">Send</a></li>
             <li><a href="receive.jsp">Receive</a></li>
             <li><a href="transactions.jsp">Transaction History</a></li>
-            <li id="profile"><a class="active" href="profile.jsp"><i style="padding-right: 10px;" class="fa-solid fa-user"></i><%= username %></a></li>
+            <li id="profile"><a class="active" href="profile.jsp"><i style="padding-right: 10px;" class="fa-solid fa-user"></i><%= username%></a></li>
+                    <% if (!"Guest".equals(username)) { %>
+            <li><a href="LogoutServlet"><i style="padding-right: 10px; color: red;" class="fa-solid fa-sign-out-alt"></i>Logout</a></li>
+                <% } else { %>
+            <li><a href="login.html"><i style="padding-right: 10px;" class="fa-solid fa-sign-in-alt"></i>Login</a></li>
+                <% }%>
         </ul>
 
         <div class="container">
@@ -58,23 +68,23 @@
                 <form action="UpdateProfileServlet" method="post">
                     <div class="row">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="username" name="username" value="<%= username %>" required placeholder="Username" readonly>
+                        <input type="text" id="username" name="username" value="<%= username%>" required placeholder="Username" readonly>
                     </div>
                     <div class="row">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" name="email" value="<%= email %>" required placeholder="Email">
+                        <input type="email" id="email" name="email" value="<%= email%>" required placeholder="Email">
                     </div>
                     <div class="row">
                         <i class="fas fa-phone"></i>
-                        <input type="number" id="contact" name="contact" value="<%= contact %>" required placeholder="Contact NO">
+                        <input type="number" id="contact" name="contact" value="<%= contact%>" required placeholder="Contact NO">
                     </div>
                     <div class="row">
                         <i class="fa-solid fa-location-dot"></i>
-                        <input type="text" id="address" name="address" value="<%= address %>" required placeholder="Address">
+                        <input type="text" id="address" name="address" value="<%= address%>" required placeholder="Address">
                     </div>
                     <div class="row">
                         <i class="fas fa-id-card"></i>
-                        <input type="text" id="nationalID" name="nationalID" value="<%= nationalID %>" required placeholder="National ID">
+                        <input type="text" id="nationalID" name="nationalID" value="<%= nationalID%>" required placeholder="National ID">
                     </div>
                     <div class="row button">
                         <input type="submit" value="Update Profile">
