@@ -191,3 +191,8 @@ form .signup-link a:hover{
 .navbtnsing:hover {
     background-color: #45a049;
 }
+
+#preview{
+    width: 100%;
+    height: auto;
+}
