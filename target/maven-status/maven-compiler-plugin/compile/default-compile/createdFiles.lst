@@ -1,7 +1,7 @@
 LogoutServlet.class
+UpdateProfileServlet.class
 LoginServlet.class
 RegisterServlet.class
-com\mycompany\cotactless\payment\system\JakartaRestConfiguration.class
-UpdateProfileServlet.class
 com\mycompany\cotactless\payment\system\resources\JakartaEE10Resource.class
 QRCodeServlet.class
+com\mycompany\cotactless\payment\system\JakartaRestConfiguration.class
